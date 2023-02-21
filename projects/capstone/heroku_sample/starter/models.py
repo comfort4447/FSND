@@ -26,7 +26,24 @@ Person
 Have title and release year
 '''
 class Person(db.Model):  
-  __tablename__ = 'People'
+  __tablename__ = 'ovies'
+
+  id = Column(db.Integer, primary_key=True)
+  name = Column(String)
+  catchphrase = Column(String)
+
+  def __init__(self, name, catchphrase=""):
+    self.name = name
+    self.catchphrase = catchphrase
+
+  def format(self):
+    return {
+      'id': self.id,
+      'name': self.name,
+      'catchphrase': self.catchphrase}
+
+  class Actors(db.Model):  
+    __tablename__ = 'actor'
 
   id = Column(db.Integer, primary_key=True)
   name = Column(String)
